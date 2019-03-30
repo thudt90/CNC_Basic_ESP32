@@ -6,6 +6,8 @@
 extern "C" {
 #endif
 
+#include "driver/gpio.h"
+
 #define DIR_GPIO GPIO_NUM_12    // Direction 2
 #define STEP_GPIO GPIO_NUM_14   // Step 4
 
