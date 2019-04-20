@@ -57,7 +57,7 @@ void IRAM_ATTR timer_group0_isr(void *para)
  * auto_reload - should the timer auto reload on alarm? No
  * timer_interval - the interval of alarm to set
  */
-static void example_tg0_timer_init(enum delay_type dtype, double timer_interval)
+static void tg0_timer_init(enum delay_type dtype, double timer_interval)
 {
     /* Select and initialize basic parameters of the timer */
     timer_config_t config;
@@ -94,24 +94,11 @@ static void example_tg0_timer_init(enum delay_type dtype, double timer_interval)
     timer_start(TIMER_GROUP_0, TIMER_1);
 }
 
-
-/*
-* Init gpio for blinky LED: gpio 2
-*/
-#define BLINK_GPIO GPIO_NUM_2
-
-void blink_init(void)
-{
-    gpio_pad_select_gpio(BLINK_GPIO);
-    /* Set the GPIO as a push/pull output */
-    gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
-}
-
 /*
  * In this example, we will test hardware timer1 of timer group0.
  * Delay milisecond
  */
-void delay(double ms)
+void timer_delay_Ms(double ms)
 {
     //timer_queue = xQueueCreate(10, sizeof(timer_event_t));
     //tg0_timer_init(TIMER_0, TEST_WITHOUT_RELOAD, TIMER_INTERVAL0_SEC);
@@ -124,7 +111,7 @@ void delay(double ms)
 /*
 * Delay microsecond
 */
-void delayMicroseconds(double us)
+void timer_delay_microseconds(double us)
 {
     tg0_timer_init(MICROSECOND, us);
 

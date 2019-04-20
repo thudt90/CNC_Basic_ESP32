@@ -22,6 +22,9 @@ enum delay_type
 };
 
 
+// Extern function
+void timer_delay_Ms(double ms);
+void timer_delay_microseconds(double us);
 
 #ifdef __cplusplus
 }

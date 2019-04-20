@@ -14,6 +14,7 @@
 #include "stepper.h"
 #include "setting.h"
 
+#include "timer_group_0.h"
 /* Can run 'make menuconfig' to choose the GPIO to blink,
    or you can edit the following line and set a number here.
 */
